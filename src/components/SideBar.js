@@ -12,10 +12,10 @@ const SideBar = () => (
         style={{ backgroundImage: `url("/images/about.jpg")` }}
       ></div>
       <h1 id="colorlib-logo">
-        <a href="index.html">Jackson Ford</a>
+        <a href="index.html">Vipin Rawat</a>
       </h1>
       <span className="position">
-        <a href="#">UI/UX/Designer</a> in Philippines
+        <a href="#">Front-end Developer</a> in India
       </span>
     </div>
     <nav id="colorlib-main-menu" role="navigation" className="navbar">

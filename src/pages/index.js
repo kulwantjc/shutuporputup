@@ -323,14 +323,9 @@ const IndexPage = () => {
                             <div className="desc">
                               <h1>
                                 Hi! <br />
-                                I'm Jackson
+                                I'm Vipin
                               </h1>
-                              <h2>
-                                100% html5 bootstrap templates Made by{" "}
-                                <a href="https://colorlib.com/" target="_blank">
-                                  colorlib.com
-                                </a>
-                              </h2>
+
                               <p>
                                 <a className="btn btn-primary btn-learn">
                                   Download CV <i className="icon-download4"></i>
@@ -352,14 +347,9 @@ const IndexPage = () => {
                           <div className="slider-text-inner">
                             <div className="desc">
                               <h1>
-                                I am <br />a Designer
+                                I am <br />a Developer
                               </h1>
-                              <h2>
-                                100% html5 bootstrap templates Made by{" "}
-                                <a href="https://colorlib.com/" target="_blank">
-                                  colorlib.com
-                                </a>
-                              </h2>
+
                               <p>
                                 <a className="btn btn-primary btn-learn">
                                   View Portfolio{" "}
@@ -389,20 +379,17 @@ const IndexPage = () => {
                           <span className="heading-meta">About Us</span>
                           <h2 className="colorlib-heading">Who Am I?</h2>
                           <p>
-                            <strong>Hi I'm Jackson Ford</strong> On her way she
-                            met a copy. The copy warned the Little Blind Text,
-                            that where it came from it would have been rewritten
-                            a thousand times and everything that was left from
-                            its origin would be the word "and" and the Little
-                            Blind Text should turn around and return to its own,
-                            safe country.
+                            <strong>Hi I'm Vipin Rawat</strong> A passionate
+                            developer and designer. I believe in writing clean
+                            code and coding beautiful interfaces. I develop web
+                            apps and native mobile apps for android, apple using
+                            React library, React Native. I also work on adobe
+                            Illustrator and photoshop. I also enjoy researching
+                            about blockchain.
                           </p>
                           <p>
-                            Even the all-powerful Pointing has no control about
-                            the blind texts it is an almost unorthographic life
-                            One day however a small line of blind text by the
-                            name of Lorem Ipsum decided to leave for the far
-                            World of Grammar.
+                            I have worked with multiple foreign companies
+                            implementing modern ideologies and best practices.
                           </p>
                         </div>
                       </div>
