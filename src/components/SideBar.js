@@ -9,7 +9,7 @@ const SideBar = () => (
     <div className="text-center">
       <div
         className="author-img"
-        style={{ backgroundImage: `url("/images/about.jpg")` }}
+        style={{ backgroundImage: `url("/images/vipinthree.png")` }}
       ></div>
       <h1 id="colorlib-logo">
         <a href="index.html">Vipin Rawat</a>

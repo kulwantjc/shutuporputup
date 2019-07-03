@@ -2,8 +2,6 @@
 import React, { useEffect } from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import SideBar from "../components/SideBar"
 
@@ -269,21 +267,17 @@ const IndexPage = () => {
         ],
       })
     }
-
     fullHeight()
     counter()
     counterWayPoint()
     contentWayPoint()
     burgerMenu()
-
     clickMenu()
     // navActive();
     navigationSection()
     // windowScroll();
-
     mobileMenuOutsideClick()
     sliderMain()
-
     owlCrouselFeatureSlide()
   })
 
@@ -338,7 +332,7 @@ const IndexPage = () => {
                     </div>
                   </li>
                   <li
-                    style={{ backgroundImage: `url("/images/img_bg_2.jpg")` }}
+                    style={{ backgroundImage: `url("/images/img_bg_2.png")` }}
                   >
                     <div className="overlay"></div>
                     <div className="container-fluid">
