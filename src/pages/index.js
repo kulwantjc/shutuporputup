@@ -421,7 +421,7 @@ const IndexPage = () => {
                           <span className="icon2">
                             <i className="icon-data"></i>
                           </span>
-                          <h3>Software</h3>
+                          <h3>Softwares</h3>
                         </div>
                       </div>
                       <div
