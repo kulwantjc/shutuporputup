@@ -18,7 +18,7 @@ export default function HTML(props) {
 
         <meta charset="UTF-8" />
 
-        <title>Give Cake</title>
+        <title>Give Cape</title>
 
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet" />
 
