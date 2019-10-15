@@ -1,353 +1,193 @@
-$(function() {
-	'use strict';
 
-	var window_width = $(window).width(),
-		window_height = window.innerHeight;
+$(document).ready(function(){
+	"use strict";
 
-	$('.fullscreen').css('height', window_height);
+	var window_width 	 = $(window).width(),
+	window_height 		 = window.innerHeight,
+	header_height 		 = $(".default-header").height(),
+	header_height_static = $(".site-header.static").outerHeight(),
+	fitscreen 			 = window_height - header_height;
 
-	if (document.getElementById('default-select')) {
-		$('select').niceSelect();
-	}
 
-	$('.toggle_icon').on('click', function() {
-		$('body').toggleClass('open');
-	});
-
-	/*----------------------------------------------------*/
-	/*  Magnific Pop up js
-	/*----------------------------------------------------*/
-
-	// for img popup //
-    $(".portfolio-area").magnificPopup({
-        delegate: '.img-popup',
-        type: 'image',
-        gallery: {
-           enabled: true
-       }
-    });
+	// $(window).on('load', function() {
+ //        // Animate loader off screen
+ //        $(".preloader").fadeOut("slow");;
+ //    });
 	
-	// home video //
-	$('.video-play-button').magnificPopup({
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false
-	});
+	$(".fullscreen").css("height", window_height)
+	$(".fitscreen").css("height", fitscreen);
 
-	// nice select //
-
-	$('select').niceSelect();
-	
-	/*----------------------------------------------------*/
-    /* counter js
-    /*----------------------------------------------------*/
-    if(document.getElementById("project_counter")){
-        $('.counter').counterUp({
-            delay: 10,
-            time: 1000
-        });
-    }
-
-	/*----------------------------------------------------*/
-	/*  Brand carousel js
-    /*----------------------------------------------------*/	
-	$('.brand-carousel').owlCarousel({
-		items: 4,
-		// autoplay: 2500,
-		loop: true,
-		nav: false,
-		dots: false,
-		responsive: {
-			0: {
-				items: 1
-			},
-			420: {
-				items: 2
-			},
-			575: {
-				items: 3
-			},
-			768: {
-				items: 4
-			},
-			1200: {
-				items: 4
-			}
-		}
-	});
-
-	/*----------------------------------------------------*/
-	/*  Portfolio carousel js
-    /*----------------------------------------------------*/	
-	$('.active-gallery-carousel').owlCarousel({
-		items: 2,
-		// autoplay: 2500,
-		loop: true,
-		margin: 30,
-		nav: true,
-		navText:["<img src='img/prev.png'>","<img src='img/next.png'>"],
-		dots: false,
-		responsive: {
-			0: {
-				items: 1
-			},
-			420: {
-				items: 1
-			},
-			575: {
-				items: 2
-			},
-			768: {
-				items: 1
-			},
-			1200: {
-				items: 2
-            },
-            1680: {
-				items: 3
-			}
-		}
-	});
-
-
-	/*----------------------------------------------------*/
-	/*  Team carousel js
-    /*----------------------------------------------------*/	
-	$('.active-team-carusel').owlCarousel({
-		items: 1,
-		// autoplay: 2500,
-		loop: true,
-		dots: false,
-		nav: true,
-		navText:["<img src='img/prev.png'>","<img src='img/next.png'>"]
-	});
-
-	/*----------------------------------------------------*/
-	/*  Testimonial carousel js
-    /*----------------------------------------------------*/	
-	$('.active-testi-carousel').owlCarousel({
-		items: 1,
-		// autoplay: 2500,
-		loop: true,
-		dots: false,
-		nav: true,
-		navText:["<img src='img/prev.png'>","<img src='img/next.png'>"]
-	});
-
-	// $(document).ready(function() {
-	// 	$('#mc_embed_signup').find('form').ajaxChimp();
-	// });
-
-	/*----------------------------------------------------*/
-    /*  Google map js
-    /*----------------------------------------------------*/
+    //-------- Active Sticky Js ----------//
+     $(".sticky-header").sticky({topSpacing:0});
      
-    if ( $('#mapBox').length ){
-        var $lat = $('#mapBox').data('lat');
-        var $lon = $('#mapBox').data('lon');
-        var $zoom = $('#mapBox').data('zoom');
-        var $marker = $('#mapBox').data('marker');
-        var $info = $('#mapBox').data('info');
-        var $markerLat = $('#mapBox').data('mlat');
-        var $markerLon = $('#mapBox').data('mlon');
-        var map = new GMaps({
-        el: '#mapBox',
-        lat: $lat,
-        lng: $lon,
-        scrollwheel: false,
-        scaleControl: true,
-        streetViewControl: false,
-        panControl: true,
-        disableDoubleClickZoom: true,
-        mapTypeControl: false,
-        zoom: $zoom,
-            styles: [
-                {
-                    "featureType": "water",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#dcdfe6"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "stylers": [
-                        {
-                            "color": "#808080"
-                        },
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#dcdfe6"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#ffffff"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#ffffff"
-                        },
-                        {
-                            "weight": 1.8
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "color": "#d7d7d7"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#ebebeb"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#a7a7a7"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#ffffff"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#ffffff"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "landscape",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#efefef"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#696969"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        },
-                        {
-                            "color": "#737373"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "labels",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        {
-                            "color": "#d6d6d6"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "labels.icon",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {},
-                {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        {
-                            "color": "#dadada"
-                        }
-                    ]
-                }
-            ]
+     // -------   Active Mobile Menu-----//
+
+     $(".mobile-btn").on('click', function(e){
+        e.preventDefault();
+        $(".main-menu").slideToggle();
+        $("span", this).toggleClass("lnr-menu lnr-cross");
+        $(".main-menu").addClass('mobile-menu');
+    });
+     $(".main-menu li a").on('click', function(e){
+        e.preventDefault();
+        $(".mobile-menu").slideUp();
+        $(".mobile-btn span").toggleClass("lnr-menu lnr-cross");
+    });
+     
+
+    // $(function(){
+    //     $('#Container').mixItUp();
+    // });
+    var mixer = mixitup('#filter-content');
+    $(".controls .filter").on('click', function(event){
+        $(".controls .filter").removeClass('active');
+        $(this).addClass('active');
+    });
+    // Add smooth scrolling to Menu links
+         $(".main-menu li a, .smooth").on('click', function(event) {
+                if (this.hash !== "") {
+                  event.preventDefault();
+                  var hash = this.hash;
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top - (-10)
+                }, 600, function(){
+                 
+                    window.location.hash = hash;
+                });
+            } 
         });
-    }
-});
+
+    $('.active-testimonial-carousel').owlCarousel({
+        loop:true,
+        dot: true,
+        items: 3,
+        margin: 30,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        animateOut: 'fadeOutLeft',
+        animateIn: 'fadeInRight',
+        responsive:{
+            0:{
+                items:1,
+            },
+            600:{
+                items:3,
+             }
+        }
+    })
+     // -------   Mail Send ajax
+
+     $(document).ready(function() {
+        var form = $('#myForm'); // contact form
+        var submit = $('.submit-btn'); // submit button
+        var alert = $('.alert'); // alert div for show alert message
+
+        // form submit event
+        form.on('submit', function(e) {
+            e.preventDefault(); // prevent default form submit
+
+            $.ajax({
+                url: 'mail.php', // form action url
+                type: 'POST', // form submit method get/post
+                dataType: 'html', // request type html/json/xml
+                data: form.serialize(), // serialize form data
+                beforeSend: function() {
+                    alert.fadeOut();
+                    submit.html('Sending....'); // change submit button text
+                },
+                success: function(data) {
+                    alert.html(data).fadeIn(); // fade in response data
+                    form.trigger('reset'); // reset form
+                    submit.html(''); // reset submit button text
+                },
+                error: function(e) {
+                    console.log(e)
+                }
+            });
+        });
+    });
+
+     $(document).ready(function() {
+        $('#mc_embed_signup').find('form').ajaxChimp();
+    });
+ });
+(function ($){
+
+    $.fn.bekeyProgressbar = function(options){
+
+        options = $.extend({
+            animate     : true,
+          animateText : true
+        }, options);
+
+        var $this = $(this);
+      
+        var $progressBar = $this;
+        var $progressCount = $progressBar.find('.progressBar-percentage-count');
+        var $circle = $progressBar.find('.progressBar-circle');
+        var percentageProgress = $progressBar.attr('data-progress');
+        var percentageRemaining = (100 - percentageProgress);
+        var percentageText = $progressCount.parent().attr('data-progress');
+      
+        //Calcule la circonférence du cercle
+        var radius = $circle.attr('r');
+        var diameter = radius * 2;
+        var circumference = Math.round(Math.PI * diameter);
+
+        //Calcule le pourcentage d'avancement
+        var percentage =  circumference * percentageRemaining / 100;
+
+        $circle.css({
+          'stroke-dasharray' : circumference,
+          'stroke-dashoffset' : percentage
+        })
+        
+        //Animation de la barre de progression
+        if(options.animate === true){
+          $circle.css({
+            'stroke-dashoffset' : circumference
+          }).animate({
+            'stroke-dashoffset' : percentage
+          }, 3000 )
+        }
+        
+        //Animation du texte (pourcentage)
+        if(options.animateText == true){
+ 
+          $({ Counter: 0 }).animate(
+            { Counter: percentageText },
+            { duration: 3000,
+             step: function () {
+               $progressCount.text( Math.ceil(this.Counter) + '%');
+             }
+            });
+
+        }else{
+          $progressCount.text( percentageText + '%');
+        }
+      
+    };
+
+})(jQuery);
+
+$(document).ready(function(){
+  
+  $('.progressBar--animateNone').bekeyProgressbar({
+    animate : false,
+    animateText : false
+  });
+  
+  $('.progressBar--animateCircle').bekeyProgressbar({
+    animate : true,
+    animateText : false
+  });
+  
+  $('.progressBar--animateText').bekeyProgressbar({
+    animate : false,
+    animateText : true
+  });
+  
+  $('.progressBar--animateAll').bekeyProgressbar();
+  
+})

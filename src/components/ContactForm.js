@@ -49,26 +49,27 @@ class ContactFrom extends Component {
             <>
                 <div className="mt-5">
 
-                    <button type="button" data-toggle="modal" data-target="#exampleModal" className="btn btn-primary">Inquire Form</button>
+                    <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Inquire </button>
 
                     <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade">
                         <div role="document" className="modal-dialog">
                             <div className="modal-content">
                                 <div className="modal-body">
                                     <button type="button" data-dismiss="modal" aria-label="Close" className="close"><span aria-hidden="true">× </span></button>
-                                    <h2 id="exampleModalLabel" className="modal-title mb-3">Inquire Form</h2>
+                                    <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
                                     <div className="container">
                                         <div className="row">
 
                                             <div className="col-lg-12">
                                                 <form className="row contact_form"
                                                 >
-                                                    <div className="col-md-6">
+                                                    <div className="col-md-12">
 
                                                         <div className="form-group">
                                                             <input
                                                                 type="text"
                                                                 className="form-control"
+                                                                style={{ borderRadius: "10px" }}
                                                                 required
                                                                 placeholder="Enter your name"
                                                                 value={this.state.name}
@@ -79,6 +80,7 @@ class ContactFrom extends Component {
                                                             <input
                                                                 type="email"
                                                                 className="form-control"
+                                                                style={{ borderRadius: "10px" }}
                                                                 required
                                                                 placeholder="Enter email address"
                                                                 value={this.state.email}
@@ -87,14 +89,14 @@ class ContactFrom extends Component {
                                                                 }
                                                             />
                                                         </div>
-
                                                     </div>
-                                                    <div className="col-md-6">
+                                                    <div className="col-md-12">
                                                         <div className="form-group">
                                                             <textarea
                                                                 className="form-control"
+                                                                style={{ borderRadius: "10px" }}
                                                                 required
-                                                                rows="1"
+                                                                rows="5"
                                                                 placeholder="Enter Message"
                                                                 value={this.state.message}
                                                                 onChange={e =>
@@ -107,14 +109,15 @@ class ContactFrom extends Component {
                                                     </div>
                                                     <div className="col-md-12 text-right">
                                                         <button
+                                                            style={{ color: "#000" }}
                                                             type="submit"
                                                             value="submit"
                                                             data-dismiss="modal" aria-label="Close"
-                                                            className="btn btn-primary"
+                                                            className="primary-btn banner-btn"
                                                             onClick={e => this.handleFormSubmit(e)}
                                                         >
                                                             Send Message
-                                                     </button>
+                                                      </button>
                                                     </div>
                                                 </form>
                                             </div>
