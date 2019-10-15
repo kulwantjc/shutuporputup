@@ -21,7 +21,7 @@ class IndexPage extends Component {
                 <div className="right-bar d-flex align-items-center">
                   <nav className="d-flex align-items-center">
                     <ul className="main-menu">
-                      <li><a href="#top">Home</a></li>
+                      <li><a href="#top">Home44</a></li>
                       <li><a href="#services">Features</a></li>
 
                     </ul>
