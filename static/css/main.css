@@ -751,7 +751,7 @@ td, th {
 
 .primary-btn.banner-btn {
   color: #fff;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .primary-btn span {
@@ -926,7 +926,7 @@ td, th {
   color:rgb(255,255,255);
   margin: 0 20px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 12px;
 }
 
 @media (max-width: 991px) {
@@ -1124,9 +1124,9 @@ td, th {
   margin-bottom: 30px;
 }
 
-.title-bg {
+/* .title-bg {
   background: #222222;
-}
+} */
 
 .product-area-title {
   padding-bottom: 70px;
@@ -1147,6 +1147,7 @@ td, th {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+  box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.2);
 }
 
 .single-product .icon {

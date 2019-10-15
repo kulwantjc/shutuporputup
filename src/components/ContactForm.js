@@ -53,17 +53,17 @@ class ContactFrom extends Component {
             <>
                 <div className="mt-5">
 
-                    <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Inquire </button>
+                    <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Enquiry </button>
 
-                    <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade">
-                        <div role="document" className="modal-dialog">
+                    <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade" >
+                        <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
                             <div className="modal-content">
                                 <div className="modal-body">
-                                    <button type="button" data-dismiss="modal" aria-label="Close" className="close"><span aria-hidden="true">× </span></button>
+
                                     <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
                                     <div className="container">
                                         <div className="row">
-
+                                            <p className="text-uppercase text-center" style={{ width: '100%', color: '#000 !important' }}>Get notified at launch!</p>
                                             <div className="col-lg-12">
                                                 <form className="row contact_form"
                                                 >
@@ -72,7 +72,7 @@ class ContactFrom extends Component {
                                                         <div className="form-group">
                                                             <input
                                                                 type="text"
-                                                                className="form-control"
+                                                                className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
                                                                 placeholder="Enter Your Name"
@@ -83,7 +83,7 @@ class ContactFrom extends Component {
                                                         <div className="form-group">
                                                             <input
                                                                 type="email"
-                                                                className="form-control"
+                                                                className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
                                                                 placeholder="Enter Your Company "
@@ -96,7 +96,7 @@ class ContactFrom extends Component {
                                                         <div className="form-group">
                                                             <input
                                                                 type="email"
-                                                                className="form-control"
+                                                                className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
                                                                 placeholder="Enter Email Address"
@@ -111,7 +111,7 @@ class ContactFrom extends Component {
                                                     <div className="col-md-12">
                                                         <div className="form-group">
                                                             <textarea
-                                                                className="form-control"
+                                                                className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
                                                                 rows="5"
@@ -125,7 +125,7 @@ class ContactFrom extends Component {
                                                             </textarea>
                                                         </div>
                                                     </div>
-                                                    <div className="col-md-12 text-right">
+                                                    <div className="col-md-12">
                                                         <button
                                                             style={{ color: "#000" }}
                                                             type="submit"
@@ -134,7 +134,7 @@ class ContactFrom extends Component {
                                                             className="primary-btn banner-btn"
                                                             onClick={e => this.handleFormSubmit(e)}
                                                         >
-                                                            Send Message
+                                                            Send
                                                       </button>
                                                     </div>
                                                 </form>

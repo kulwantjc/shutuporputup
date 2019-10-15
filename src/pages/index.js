@@ -16,7 +16,8 @@ class IndexPage extends Component {
               <div className="header-content d-flex justify-content-between align-items-center">
                 <div className="logo">
                   <a href="#top" className="smooth">
-                    <img src="img/logo.png" alt="" />
+                    {/* <img src="img/logo.png" alt="" /> */}
+                    <h3 style={{ color: "white" }}>GiveCape</h3>
                   </a>
                 </div>
                 <div className="right-bar d-flex align-items-center">
@@ -45,8 +46,8 @@ class IndexPage extends Component {
               <div className="row fullscreen justify-content-center align-items-center" style={{ height: "623px" }}>
                 <div className="col-lg-8">
                   <div className="banner-content text-center">
-                    <p className="text-uppercase text-white"></p>
-                    <h1 className="text-uppercase text-white">Give Cape Coming Soon</h1>
+                    <p className="text-uppercase text-white">WE ARE LAUNCHING SOON, JOIN TODAY FOR EARLY ACCESS!</p>
+                    <h1 className="text-white">GiveCape Coming Soon!</h1>
                     <a href="#"><ContactFrom></ContactFrom></a>
                   </div>
                 </div>
@@ -54,57 +55,57 @@ class IndexPage extends Component {
             </div>
           </div>
         </section>
-        <section id="services" class="title-bg section-full">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="product-area-title text-center">
-                  <p class="text-white text-uppercase">Why Choose Us</p>
-                  <h2 class="text-white h1">
-                    We ensure perfect quality Digital <br /> products for you</h2>
+        <section id="services" className="title-bg section-full">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-lg-8">
+                <div className="product-area-title text-center">
+                  <p className=" text-uppercase">Features</p>
+                  <h2 className=" h1">
+                    How we help in tracking <br /> your Goals ?</h2>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                  <div class="icon">
-                    <span class="lnr lnr-star"></span>
+            <div className="row">
+              <div className="col-lg-3 col-sm-6">
+                <div className="single-product">
+                  <div className="icon">
+                    <span className="lnr lnr-star"></span>
                   </div>
-                  <div class="desc">
+                  <div className="desc">
                     <h4>Unique Design</h4>
                     <p>Most people who work in an office environment, buy computer products, or have </p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                  <div class="icon">
-                    <span class="lnr lnr-magic-wand"></span>
+              <div className="col-lg-3 col-sm-6">
+                <div className="single-product">
+                  <div className="icon">
+                    <span className="lnr lnr-magic-wand"></span>
                   </div>
-                  <div class="desc">
+                  <div className="desc">
                     <h4>Appropriate UX</h4>
                     <p>Today, many people rely on computers to do homework, work, and create or store useful</p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                  <div class="icon">
-                    <span class="lnr lnr-sun"></span>
+              <div className="col-lg-3 col-sm-6">
+                <div className="single-product">
+                  <div className="icon">
+                    <span className="lnr lnr-sun"></span>
                   </div>
-                  <div class="desc">
+                  <div className="desc">
                     <h4>Perfect Visual</h4>
                     <p>Having a baby can be a nerve wracking experience for new parents – not the  </p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-6">
-                <div class="single-product">
-                  <div class="icon">
-                    <span class="lnr lnr-layers"></span>
+              <div className="col-lg-3 col-sm-6">
+                <div className="single-product">
+                  <div className="icon">
+                    <span className="lnr lnr-layers"></span>
                   </div>
-                  <div class="desc">
+                  <div className="desc">
                     <h4>Different Layout</h4>
                     <p>It won’t be a bigger problem to find one video game lover in your neighbor. Since the </p>
                   </div>
