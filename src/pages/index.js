@@ -9,27 +9,27 @@ class IndexPage extends Component {
       <>
         <div id="top"></div>
         <header className="default-header">
-          <div id="undefined-sticky-wrapper" className="sticky-wrapper">
-            <div className="sticky-header">
-              <div className="container">
-                <div className="header-content d-flex justify-content-between align-items-center">
-                  <div className="logo">
-                    <a href="#top" className="smooth">
-                      <img src="img/logo.png" alt="" />
-                    </a>
-                  </div>
-                  <div className="right-bar d-flex align-items-center">
-                    <nav className="d-flex align-items-center">
-                      <ul className="main-menu">
-                        <li><a href="#top">Home</a></li>
-                        <li><a href="#services">Features</a></li>
 
-                      </ul>
-                      <a href="#" className="mobile-btn">
-                        <span className="lnr lnr-menu">
-                        </span></a>
-                    </nav>
-                  </div>
+          <div className="sticky-header">
+            <div className="container">
+              <div className="header-content d-flex justify-content-between align-items-center">
+                <div className="logo">
+                  <a href="#top" className="smooth">
+                    <img src="img/logo.png" alt="" />
+                  </a>
+                </div>
+                <div className="right-bar d-flex align-items-center">
+                  <nav className="d-flex align-items-center">
+                    <ul className="main-menu">
+                      <li><a href="#top">Home</a></li>
+                      <li><a href="#services">Features</a></li>
+
+                    </ul>
+                    <a href="#" className="mobile-btn">
+                      <span className="lnr lnr-menu">
+                      </span></a>
+                  </nav>
+
                 </div>
               </div>
             </div>
