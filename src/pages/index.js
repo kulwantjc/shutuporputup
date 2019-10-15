@@ -11,6 +11,7 @@ class IndexPage extends Component {
         <header className="default-header">
 
           <div className="sticky-header">
+            {/* <div className="container"> */}
             <div className="container d-flex justify-content-between align-items-center">
               <div className="header-content d-flex justify-content-between align-items-center">
                 <div className="logo">
@@ -94,7 +95,7 @@ class IndexPage extends Component {
                   </div>
                   <div class="desc">
                     <h4>Perfect Visual</h4>
-                    <p>Having a baby can be a nerve wracking experience for new parents – not the nine months </p>
+                    <p>Having a baby can be a nerve wracking experience for new parents – not the  </p>
                   </div>
                 </div>
               </div>
