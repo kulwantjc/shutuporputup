@@ -11,7 +11,7 @@ class IndexPage extends Component {
         <header className="default-header">
 
           <div className="sticky-header">
-            <div className="container">
+            <div className="container d-flex justify-content-between align-items-center">
               <div className="header-content d-flex justify-content-between align-items-center">
                 <div className="logo">
                   <a href="#top" className="smooth">
