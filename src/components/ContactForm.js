@@ -8,7 +8,9 @@ class ContactFrom extends Component {
         this.state = {
             name: '',
             email: '',
-            message: ''
+            message: '',
+            company: '',
+
         };
     }
 
@@ -24,9 +26,11 @@ class ContactFrom extends Component {
                 Name: this.state.name,
                 email: this.state.email,
                 message: this.state.message,
+                company: this.state.company
             })
+
         })
-            .then(response => response.json())
+            .then(response => response.json(console.log("responseresponse", response)))
 
             .then(data => {
                 if (data.success === true) {
@@ -37,7 +41,7 @@ class ContactFrom extends Component {
                         timer: 3000,
                         button: false
                     })
-                    this.setState({ name: "", email: "", message: "" })
+                    this.setState({ name: "", email: "", message: "", company: "" })
                 }
             }
             )
@@ -71,7 +75,7 @@ class ContactFrom extends Component {
                                                                 className="form-control"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
-                                                                placeholder="Enter your name"
+                                                                placeholder="Enter Your Name"
                                                                 value={this.state.name}
                                                                 onChange={e => this.setState({ name: e.target.value })}
                                                             />
@@ -82,13 +86,27 @@ class ContactFrom extends Component {
                                                                 className="form-control"
                                                                 style={{ borderRadius: "10px" }}
                                                                 required
-                                                                placeholder="Enter email address"
+                                                                placeholder="Enter Your Company "
+                                                                value={this.state.company}
+                                                                onChange={e =>
+                                                                    this.setState({ company: e.target.value })
+                                                                }
+                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <input
+                                                                type="email"
+                                                                className="form-control"
+                                                                style={{ borderRadius: "10px" }}
+                                                                required
+                                                                placeholder="Enter Email Address"
                                                                 value={this.state.email}
                                                                 onChange={e =>
                                                                     this.setState({ email: e.target.value })
                                                                 }
                                                             />
                                                         </div>
+
                                                     </div>
                                                     <div className="col-md-12">
                                                         <div className="form-group">
