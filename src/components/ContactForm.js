@@ -8,7 +8,13 @@ import { withFormik } from 'formik';
 
 const ContactFrom = props => {
 
-    // const [state, setState] = useState(initialState)
+    const Style = {
+        color: 'red',
+        fontSize: '12px',
+        textAlign: "left",
+        padding: "0px 15px"
+    };
+
     const {
         values,
         touched,
@@ -46,7 +52,7 @@ const ContactFrom = props => {
                                                             value={values.name}
                                                             name="name"
                                                         />
-                                                        {errors.name && touched.name && <div id="feedback" style={{ color: 'red', fontSize: '12px', textAlign: "left", padding: "0px 15px" }}>{errors.name}</div>}
+                                                        {errors.name && touched.name && <div id="feedback" style={Style}>{errors.name}</div>}
                                                     </div>
                                                     <div className="form-group">
                                                         <input
@@ -59,7 +65,7 @@ const ContactFrom = props => {
                                                             value={values.email}
                                                             name="email"
                                                         />
-                                                        {errors.email && touched.email && <div id="feedback" style={{ color: 'red', fontSize: '12px', textAlign: "left", padding: "0px 15px" }}>{errors.email}</div>}
+                                                        {errors.email && touched.email && <div id="feedback" style={Style}>{errors.email}</div>}
                                                     </div>
                                                     <div className="form-group">
                                                         <input
@@ -72,7 +78,7 @@ const ContactFrom = props => {
                                                             value={values.company}
                                                             name="company"
                                                         />
-                                                        {errors.company && touched.company && <div id="feedback" style={{ color: 'red', fontSize: '12px', textAlign: "left", padding: "0px 15px" }}>{errors.company}</div>}
+                                                        {errors.company && touched.company && <div id="feedback" style={Style}>{errors.company}</div>}
                                                     </div>
                                                 </div>
                                                 <div className="col-md-12">
@@ -90,7 +96,7 @@ const ContactFrom = props => {
                                                         >
                                                         </textarea>
 
-                                                        {errors.message && touched.message && <div id="feedback" style={{ color: 'red', fontSize: '12px', textAlign: "left", padding: "0px 15px" }}>{errors.message}</div>}
+                                                        {errors.message && touched.message && <div id="feedback" style={Style}>{errors.message}</div>}
                                                     </div>
                                                 </div>
                                                 <div className="col-md-12">
