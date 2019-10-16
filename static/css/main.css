@@ -913,8 +913,15 @@ td, th {
   -moz-align-items: center;
   align-items: center;
 }
-
+.service1{display: none;}
 @media (max-width: 767px) {
+  a.service1 {
+    display: inline-block;
+    padding: 12px 26px;
+    background-color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+}
   .default-header nav .main-menu {
     display: none;
   }
@@ -966,7 +973,7 @@ td, th {
     display: block !important;
     font-size: 36px !important;
     position: absolute;
-    top: 0;
+    top: -17;
     right: 0;
   }
 }
@@ -1225,6 +1232,10 @@ td, th {
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
+}
+
+.header-content.d-flex.justify-content-between.align-items-center {
+  width: 100%;
 }
 
 .single-filter-content .overlay-bg-content p {

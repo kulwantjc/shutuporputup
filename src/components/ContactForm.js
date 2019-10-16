@@ -1,13 +1,13 @@
 
 import React from "react"
 import swal from 'sweetalert';
-// import useState from 
+//import useState from 'react';
 import { withFormik } from 'formik';
 //import { object as yupObject, string as yupString } from 'yup';
 
 
 const ContactFrom = props => {
-
+    //const [state, setState] = useState();
     const Style = {
         color: 'red',
         fontSize: '12px',
@@ -148,6 +148,7 @@ const MyEnhancedForm = withFormik({
         if (!values.name) {
             errors.name = 'Name Required';
         }
+
         if (!values.email) {
             errors.email = 'Email Required';
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
@@ -191,7 +192,7 @@ const MyEnhancedForm = withFormik({
                             timer: 3000,
                             button: false
                         })
-                        //this.setState({ name: "", email: "", message: "", company: "" })
+                        //setState({ name: "", email: "", message: "", company: "" })
                     }
                 }
                 )

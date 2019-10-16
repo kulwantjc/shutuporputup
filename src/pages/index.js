@@ -27,6 +27,7 @@ class IndexPage extends Component {
                       <li><a href="#services">Features</a></li>
 
                     </ul>
+                    <a href="#services" className="service1">Features</a>
                     <a href="#" className="mobile-btn">
                       <span className="lnr lnr-menu">
                       </span></a>
