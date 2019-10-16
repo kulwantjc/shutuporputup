@@ -1,166 +1,199 @@
 
-import React, { Component } from "react"
+import React from "react"
 import swal from 'sweetalert';
+import { withFormik } from 'formik';
+//import { object as yupObject, string as yupString } from 'yup';
 
-class ContactFrom extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            email: '',
-            message: '',
-            company: '',
 
-        };
-    }
+const ContactFrom = props => {
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+    } = props;
 
-    handleFormSubmit = e => {
-        e.preventDefault();
-        fetch('http://192.168.0.54:1338/contactus', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                Name: this.state.name,
-                email: this.state.email,
-                message: this.state.message,
-                company: this.state.company
-            })
 
-        })
-            .then(response => response.json(console.log("responseresponse", response)))
+    return (
+        <>
+            <div className="mt-5">
+                <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Enquiry </button>
 
-            .then(data => {
-                if (data.success === true) {
-                    swal({
-                        title: "Done!",
-                        text: "Email send admin",
-                        icon: "success",
-                        timer: 3000,
-                        button: false
-                    })
-                    this.setState({ name: "", email: "", message: "", company: "" })
-                }
-            }
-            )
-            .catch(error => console.log(error))
-
-    }
-    render() {
-        return (
-            <>
-                <div className="mt-5">
-
-                    <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Enquiry </button>
-
-                    <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade" >
-                        <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">× </span></button>
-                                    <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
-                                    <div className="container">
-                                        <div className="row">
-                                            <p className="text-uppercase text-center" style={{ width: '100%', color: '#000 !important' }}>Get notified at launch!</p>
-                                            <div className="col-lg-12">
-                                                <form className="row contact_form"
-                                                >
-                                                    <div className="col-md-12">
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="text"
-                                                                name="name"
-                                                                className="form-control form-control-sm"
-                                                                style={{ borderRadius: "10px" }}
-                                                                required="required"
-                                                                placeholder="Enter Your Name"
-                                                                value={this.state.name}
-                                                                onChange={e => this.setState({ name: e.target.value })}
-                                                            />
-
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="text"
-                                                                className="form-control form-control-sm"
-                                                                style={{ borderRadius: "10px" }}
-                                                                required="required"
-                                                                placeholder="Enter Your Company "
-                                                                value={this.state.company}
-                                                                onChange={e =>
-                                                                    this.setState({ company: e.target.value })
-                                                                }
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="email"
-                                                                className="form-control form-control-sm"
-                                                                style={{ borderRadius: "10px" }}
-                                                                required="required"
-                                                                placeholder="Enter Email Address"
-                                                                value={this.state.email}
-                                                                onChange={e =>
-                                                                    this.setState({ email: e.target.value })
-                                                                }
-                                                            />
-                                                        </div>
-
+                <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade" >
+                    <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
+                        <div className="modal-content">
+                            <div className="modal-body">
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">× </span></button>
+                                <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
+                                <div className="container">
+                                    <div className="row">
+                                        <p className="text-uppercase text-center" style={{ width: '100%', color: '#000' }}>Get notified at launch!</p>
+                                        <div className="col-lg-12">
+                                            <form className="row contact_form " onSubmit={handleSubmit} >
+                                                <div className="col-md-12">
+                                                    <div className="form-group">
+                                                        <input
+                                                            type="text"
+                                                            className="form-control form-control-sm"
+                                                            style={{ padding: '8px 12px' }}
+                                                            placeholder="Name"
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            value={values.name}
+                                                            name="name"
+                                                        />
+                                                        {errors.name && touched.name && <div id="feedback" style={{ color: 'red', fontSize: '12px' }}>{errors.name}</div>}
                                                     </div>
-                                                    <div className="col-md-12">
-                                                        <div className="form-group">
-                                                            <textarea
-                                                                className="form-control form-control-sm"
-                                                                style={{ borderRadius: "10px" }}
-                                                                required="required"
-                                                                rows="5"
-                                                                placeholder="Enter Message"
-                                                                value={this.state.message}
-                                                                onChange={e =>
-                                                                    this.setState({ message: e.target.value })
-                                                                }
-                                                            >
-
-                                                            </textarea>
-                                                        </div>
+                                                    <div className="form-group">
+                                                        <input
+                                                            type="email"
+                                                            className="form-control form-control-sm"
+                                                            placeholder="Email"
+                                                            style={{ padding: '8px 12px' }}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            value={values.email}
+                                                            name="email"
+                                                        />
+                                                        {errors.email && touched.email && <div id="feedback" style={{ color: 'red', fontSize: '12px' }}>{errors.email}</div>}
                                                     </div>
-                                                    <div className="col-md-12">
-                                                        <button
-                                                            style={{ color: "#000" }}
-                                                            type="submit"
-                                                            value="submit"
-
-                                                            className="primary-btn banner-btn"
-                                                            onClick={e => this.handleFormSubmit(e)}
+                                                    <div className="form-group">
+                                                        <input
+                                                            type="text"
+                                                            className="form-control form-control-sm"
+                                                            placeholder="Company"
+                                                            style={{ padding: '8px 12px' }}
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            value={values.company}
+                                                            name="company"
+                                                        />
+                                                        {errors.company && touched.company && <div id="feedback" style={{ color: 'red', fontSize: '12px' }}>{errors.company}</div>}
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-12">
+                                                    <div className="form-group">
+                                                        <textarea
+                                                            type="text"
+                                                            style={{ padding: '8px 12px' }}
+                                                            className="form-control form-control-sm"
+                                                            rows="5"
+                                                            placeholder="Message"
+                                                            onChange={handleChange}
+                                                            onBlur={handleBlur}
+                                                            value={values.message}
+                                                            name="message"
                                                         >
-                                                            Send
+                                                        </textarea>
+
+                                                        {errors.message && touched.message && <div id="feedback" style={{ color: 'red', fontSize: '12px' }}>{errors.message}</div>}
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-12">
+                                                    <button
+                                                        style={{ color: "#000" }}
+                                                        type="submit"
+                                                        value="submit"
+                                                        className="primary-btn banner-btn"
+                                                    >
+                                                        Send
                                                       </button><span />
-                                                        {/* <button
+                                                    {/* <button
                                                             style={{ color: "#000", marginLeft: "15px" }}
                                                             type="button"
                                                             data-dismiss="modal"
                                                             className="primary-btn banner-btn">
                                                             Close
                                                           </button> */}
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                </div>
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div class="modal-footer justify-content-end">
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                    <button type="button" data-dismiss="modal" class="btn btn-outline-muted">Close</button>
-                                </div> */}
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
+        </>
 
-        );
-    }
+    );
 }
-export default ContactFrom;
+
+const MyEnhancedForm = withFormik({
+    enableReinitialize: true,
+    mapPropsToValues: () => ({
+        name: '',
+        email: '',
+        company: '',
+        message: ''
+
+    }),
+    //Custom sync validation
+    validate: values => {
+        const errors = {};
+
+        if (!values.name) {
+            errors.name = 'Name Required';
+        }
+        if (!values.email) {
+            errors.email = 'Email Required';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+            errors.email = 'Invalid email address';
+        }
+        if (!values.company) {
+            errors.company = 'Company Required';
+        }
+        if (!values.message) {
+            errors.message = 'Message Required';
+        }
+        return errors;
+    },
+
+    // validationSchema: yupObject().shape({
+    //     email: yupString().email('Email Required jcsoftware'),
+    //     // password: yupString().min(8),
+    //     // firstName: yupString().min(4),
+    //     // lastName: yupString().min(4)
+    // }),
+
+    handleSubmit: (values, { setSubmitting }) => {
+        setTimeout(() => {
+            fetch('http://192.168.0.54:1338/contactus', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+
+            })
+                .then(response => response.json(console.log("responseresponse", response)))
+
+                .then(data => {
+                    if (data.success === true) {
+                        swal({
+                            title: "Done!",
+                            text: "Email send admin",
+                            icon: "success",
+                            timer: 3000,
+                            button: false
+                        })
+                        //this.setState({ name: "", email: "", message: "", company: "" })
+                    }
+                }
+                )
+                .catch(error => console.log(error))
+            // alert(JSON.stringify(values, null, 2));
+            // setSubmitting(false);
+        }, 2000);
+    },
+
+    displayName: 'BasicForm',
+})(ContactFrom);
+
+export default MyEnhancedForm;      
