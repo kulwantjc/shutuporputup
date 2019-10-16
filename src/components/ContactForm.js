@@ -32,7 +32,7 @@ const ContactFrom = props => {
                                 <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
                                 <div className="container">
                                     <div className="row">
-                                        <p className="text-uppercase text-center" style={{ width: '100%', color: '#000' }}>Get notified at launch!kkklll</p>
+                                        <p className="text-uppercase text-center" style={{ width: '100%', color: '#000' }}>Get notified at launch!</p>
                                         <div className="col-lg-12">
                                             <form className="row contact_form " onSubmit={handleSubmit} >
                                                 <div className="col-md-12">
