@@ -30,11 +30,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --port 3100",
     "develop": "gatsby develop --port 3100",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop ",
-    "serve": "gatsby serve ",
+    "start": "npm run develop --port 3100 ",
+    "serve": "gatsby serve --port 3100",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
