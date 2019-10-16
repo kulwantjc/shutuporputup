@@ -59,7 +59,7 @@ class ContactFrom extends Component {
                         <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
                             <div className="modal-content">
                                 <div className="modal-body">
-
+                                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">× </span></button>
                                     <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
                                     <div className="container">
                                         <div className="row">
@@ -68,24 +68,25 @@ class ContactFrom extends Component {
                                                 <form className="row contact_form"
                                                 >
                                                     <div className="col-md-12">
+                                                        <div className="form-group">
+                                                            <input
+                                                                type="text"
+                                                                name="name"
+                                                                className="form-control form-control-sm"
+                                                                style={{ borderRadius: "10px" }}
+                                                                required="required"
+                                                                placeholder="Enter Your Name"
+                                                                value={this.state.name}
+                                                                onChange={e => this.setState({ name: e.target.value })}
+                                                            />
 
+                                                        </div>
                                                         <div className="form-group">
                                                             <input
                                                                 type="text"
                                                                 className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
-                                                                required
-                                                                placeholder="Enter Your Name"
-                                                                value={this.state.name}
-                                                                onChange={e => this.setState({ name: e.target.value })}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <input
-                                                                type="email"
-                                                                className="form-control form-control-sm"
-                                                                style={{ borderRadius: "10px" }}
-                                                                required
+                                                                required="required"
                                                                 placeholder="Enter Your Company "
                                                                 value={this.state.company}
                                                                 onChange={e =>
@@ -98,7 +99,7 @@ class ContactFrom extends Component {
                                                                 type="email"
                                                                 className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
-                                                                required
+                                                                required="required"
                                                                 placeholder="Enter Email Address"
                                                                 value={this.state.email}
                                                                 onChange={e =>
@@ -113,7 +114,7 @@ class ContactFrom extends Component {
                                                             <textarea
                                                                 className="form-control form-control-sm"
                                                                 style={{ borderRadius: "10px" }}
-                                                                required
+                                                                required="required"
                                                                 rows="5"
                                                                 placeholder="Enter Message"
                                                                 value={this.state.message}
@@ -130,12 +131,19 @@ class ContactFrom extends Component {
                                                             style={{ color: "#000" }}
                                                             type="submit"
                                                             value="submit"
-                                                            data-dismiss="modal" aria-label="Close"
+
                                                             className="primary-btn banner-btn"
                                                             onClick={e => this.handleFormSubmit(e)}
                                                         >
                                                             Send
-                                                      </button>
+                                                      </button><span />
+                                                        {/* <button
+                                                            style={{ color: "#000", marginLeft: "15px" }}
+                                                            type="button"
+                                                            data-dismiss="modal"
+                                                            className="primary-btn banner-btn">
+                                                            Close
+                                                          </button> */}
                                                     </div>
                                                 </form>
                                             </div>
