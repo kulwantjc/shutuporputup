@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ContactFrom from '../components/ContactForm';
 
 class IndexPage extends Component {
-
   render() {
     return (
       <>
@@ -16,8 +15,9 @@ class IndexPage extends Component {
               <div className="header-content d-flex justify-content-between align-items-center">
                 <div className="logo">
                   <a href="#top" className="smooth">
-                    {/* <img src="img/logo.png" alt="" /> */}
-                    <h3 style={{ color: "white" }}>GiveCape</h3>
+
+                    <img src="img/fav.png" alt="" style={{ width: '70px' }} />
+                    {/* <h3 style={{ color: "white" }}>GiveCape</h3> */}
                   </a>
                 </div>
                 <div className="right-bar d-flex align-items-center">

@@ -3,7 +3,8 @@ import React from "react"
 import swal from 'sweetalert';
 //import useState from 'react';
 import { withFormik } from 'formik';
-//import { object as yupObject, string as yupString } from 'yup';
+//import { string, object } from 'yup';
+import { object as yupObject, string as yupString } from 'yup';
 
 
 const ContactFrom = props => {
@@ -14,7 +15,6 @@ const ContactFrom = props => {
         textAlign: "left",
         padding: "0px 15px"
     };
-
     const {
         values,
         touched,
@@ -28,7 +28,6 @@ const ContactFrom = props => {
         <>
             <div className="mt-5">
                 <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Enquiry </button>
-
                 <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade" >
                     <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
                         <div className="modal-content">
@@ -122,13 +121,11 @@ const ContactFrom = props => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </>
-
     );
 }
 
@@ -142,35 +139,38 @@ const MyEnhancedForm = withFormik({
 
     }),
     //Custom sync validation
-    validate: values => {
-        const errors = {};
+    // validate: values => {
+    //     const errors = {};
 
-        if (!values.name) {
-            errors.name = 'Name Required';
-        }
+    //     if (!values.name) {
+    //         errors.name = 'Name Required';
+    //     }
 
-        if (!values.email) {
-            errors.email = 'Email Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
-        }
-        if (!values.company) {
-            errors.company = 'Company Required';
-        }
-        if (!values.message) {
-            errors.message = 'Message Required';
-        }
-        return errors;
-    },
+    //     if (!values.email) {
+    //         errors.email = 'Email Required';
+    //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    //         errors.email = 'Invalid email address';
+    //     }
+    //     if (!values.company) {
+    //         errors.company = 'Company Required';
+    //     }
+    //     if (!values.message) {
+    //         errors.message = 'Message Required';
+    //     }
+    //     return errors;
+    // },
 
-    // validationSchema: yupObject().shape({
-    //     email: yupString().email('Email Required jcsoftware'),
-    //     // password: yupString().min(8),
-    //     // firstName: yupString().min(4),
-    //     // lastName: yupString().min(4)
-    // }),
 
-    handleSubmit: (values, { setSubmitting }) => {
+    validationSchema: yupObject().shape({
+        email: yupString().email('Email Required '),
+
+        // password: yupString().min(8),
+        name: yupString().min(4),
+        // lastName: yupString().min(4)
+
+    }),
+
+    handleSubmit: (values, { props, setSubmitting }) => {
         setTimeout(() => {
             fetch('http://192.168.0.54:1338/contactus', {
                 method: 'POST',
