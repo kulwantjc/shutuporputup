@@ -140,38 +140,38 @@ const MyEnhancedForm = withFormik({
 
     }),
     //Custom sync validation
-    validate: values => {
-        const errors = {};
+    // validate: values => {
+    //     const errors = {};
 
-        if (!values.name) {
-            errors.name = 'Name Required';
-        }
+    //     if (!values.name) {
+    //         errors.name = 'Name Required';
+    //     }
 
-        if (!values.email) {
-            errors.email = 'Email Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
-        }
-        if (!values.company) {
-            errors.company = 'Company Required';
-        }
-        if (!values.message) {
-            errors.message = 'Message Required';
-        }
-        return errors;
-    },
+    //     if (!values.email) {
+    //         errors.email = 'Email Required';
+    //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    //         errors.email = 'Invalid email address';
+    //     }
+    //     if (!values.company) {
+    //         errors.company = 'Company Required';
+    //     }
+    //     if (!values.message) {
+    //         errors.message = 'Message Required';
+    //     }
+    //     return errors;
+    // },
 
 
-    // validationSchema: yupObject().shape({
-    //     email: yupString().email('Email Required '),
+    validationSchema: yupObject().shape({
+        email: yupString().email('Email Required '),
 
-    //     // password: yupString().min(8),
-    //     name: yupString().min(4),
-    //     // lastName: yupString().min(4)
+        // password: yupString().min(8),
+        name: yupString().min(4),
+        // lastName: yupString().min(4)
 
-    // }),
+    }),
 
-    handleSubmit: (values, { props, setSubmitting }) => {
+    handleSubmit: (values, { setSubmitting }) => {
         setTimeout(() => {
             fetch('http://192.168.0.54:1338/contactus', {
                 method: 'POST',
