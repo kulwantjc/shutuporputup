@@ -1,14 +1,11 @@
 
 import React from "react"
 import swal from 'sweetalert';
-//import useState from 'react';
+
 import { withFormik } from 'formik';
-//import { string, object } from 'yup';
 import { object as yupObject, string as yupString } from 'yup';
 
-
 const ContactFrom = props => {
-    //const [state, setState] = useState();
     const Style = {
         color: 'red',
         fontSize: '12px',
@@ -22,6 +19,8 @@ const ContactFrom = props => {
         handleChange,
         handleBlur,
         handleSubmit,
+        isSubmitting,
+
     } = props;
 
     return (
@@ -42,18 +41,20 @@ const ContactFrom = props => {
                                                 <div className="col-md-12">
                                                     <div className="form-group">
                                                         <input
+                                                            name="name"
+                                                            id="loginFirstName"
                                                             type="text"
-                                                            className="form-control form-control-sm"
-                                                            style={{ padding: '8px 12px' }}
                                                             placeholder="Name"
+                                                            className="form-control form-control-sm"
+                                                            value={values.name}
                                                             onChange={handleChange}
                                                             onBlur={handleBlur}
-                                                            value={values.name}
-                                                            name="name"
+                                                            style={{ padding: '8px 12px' }}
                                                         />
                                                         {errors.name && touched.name && (<div id="feedback"
                                                             style={Style}>{errors.name}</div>)}
                                                     </div>
+
                                                     <div className="form-group">
                                                         <input
                                                             type="email"
@@ -105,9 +106,13 @@ const ContactFrom = props => {
                                                         type="submit"
                                                         value="submit"
                                                         className="primary-btn banner-btn"
+                                                        disabled={isSubmitting}
                                                     >
                                                         Send
-                                                      </button><span />
+                                                      </button>
+                                                    <span />
+
+                                                    {/* <Loader /> */}
                                                     {/* <button
                                                             style={{ color: "#000", marginLeft: "15px" }}
                                                             type="button"
@@ -116,7 +121,6 @@ const ContactFrom = props => {
                                                             Close
                                                           </button> */}
                                                 </div>
-
                                             </form>
                                         </div>
                                     </div>
@@ -130,48 +134,39 @@ const ContactFrom = props => {
     );
 }
 
-const MyEnhancedForm = withFormik({
+const PostReviewFormFormik = withFormik({
     enableReinitialize: true,
     mapPropsToValues: () => ({
         name: '',
         email: '',
         company: '',
         message: ''
-
     }),
-    //Custom sync validation
-    // validate: values => {
-    //     const errors = {};
-
-    //     if (!values.name) {
-    //         errors.name = 'Name Required';
-    //     }
-
-    //     if (!values.email) {
-    //         errors.email = 'Email Required';
-    //     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    //         errors.email = 'Invalid email address';
-    //     }
-    //     if (!values.company) {
-    //         errors.company = 'Company Required';
-    //     }
-    //     if (!values.message) {
-    //         errors.message = 'Message Required';
-    //     }
-    //     return errors;
-    // },
 
 
     validationSchema: yupObject().shape({
-        email: yupString().email('Email Required '),
+        name: yupString()
+            .min(4, 'Please enter less than 4 characters')
+            .max(20, 'Please enter no more than 25 characters')
+            .required('Please enter your first name'),
 
-        // password: yupString().min(8),
-        name: yupString().min(4),
-        // lastName: yupString().min(4)
+        email: yupString()
+            .email('Please enter a valid email')
+            .required('Please enter an email'),
+
+        company: yupString()
+            .min(10, 'Please enter no less than 10   characters')
+            .max(25, 'Please enter no more than 25 characters')
+            .required('Please enter a company name'),
+
+        message: yupString()
+            .max(250, 'Please enter no more than 250 characters')
+            .required('Please enter a company name'),
 
     }),
 
-    handleSubmit: (values, { setSubmitting }) => {
+    handleSubmit: (values, { setSubmitting, resetForm }) => {
+        console.log("values123456789", values);
         setTimeout(() => {
             fetch('http://192.168.0.54:1338/contactus', {
                 method: 'POST',
@@ -180,7 +175,6 @@ const MyEnhancedForm = withFormik({
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(values)
-
             })
                 .then(response => response.json(console.log("responseresponse", response)))
 
@@ -190,20 +184,28 @@ const MyEnhancedForm = withFormik({
                             title: "Done!",
                             text: "Email send admin",
                             icon: "success",
-                            timer: 3000,
-                            button: false
+                            timer: 2000,
+                            button: false,
+
+
                         })
                         //setState({ name: "", email: "", message: "", company: "" })
+                    }
+                    if (data.message) {
+                        swal('Not Mail has been sent');
+                        //this.props.resetPutVehicle();
                     }
                 }
                 )
                 .catch(error => console.log(error))
-            // alert(JSON.stringify(values, null, 2));
-            // setSubmitting(false);
+            //alert(JSON.stringify(values, null, 2));
+            resetForm();
+            setSubmitting(false);
+
         }, 2000);
     },
 
     displayName: 'BasicForm',
 })(ContactFrom);
 
-export default MyEnhancedForm;      
+export default PostReviewFormFormik;      
