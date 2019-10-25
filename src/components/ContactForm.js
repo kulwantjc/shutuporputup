@@ -25,107 +25,79 @@ const ContactFrom = props => {
 
     return (
         <>
-            <div className="mt-5">
-                <button type="button" data-toggle="modal" data-target="#exampleModal" className="primary-btn banner-btn">Send Enquiry </button>
-                <div id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" className="modal fade" >
-                    <div role="document" className="modal-dialog modal-dialog-centered" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '85%' }}>
-                        <div className="modal-content">
-                            <div className="modal-body">
-                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">× </span></button>
-                                <h2 id="exampleModalLabel" style={{ color: "#007bff" }} className="modal-title mb-3"></h2>
-                                <div className="container">
-                                    <div className="row">
-                                        <p className="text-uppercase text-center" style={{ width: '100%', color: '#000' }}>Get notified at launch!</p>
-                                        <div className="col-lg-12">
-                                            <form className="row contact_form " onSubmit={handleSubmit} >
-                                                <div className="col-md-12">
-                                                    <div className="form-group">
-                                                        <input
-                                                            name="name"
-                                                            id="loginFirstName"
-                                                            type="text"
-                                                            placeholder="Name"
-                                                            className="form-control form-control-sm"
-                                                            value={values.name}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            style={{ padding: '8px 12px' }}
-                                                        />
-                                                        {errors.name && touched.name && (<div id="feedback"
-                                                            style={Style}>{errors.name}</div>)}
-                                                    </div>
+            <div className="modal form-model" id="email-p1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLongTitle">Get notified at launch!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body text-left">
 
-                                                    <div className="form-group">
-                                                        <input
-                                                            type="email"
-                                                            className="form-control form-control-sm"
-                                                            placeholder="Email"
-                                                            style={{ padding: '8px 12px' }}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            value={values.email}
-                                                            name="email"
-                                                        />
-                                                        {errors.email && touched.email && <div id="feedback" style={Style}>{errors.email}</div>}
-                                                    </div>
-                                                    <div className="form-group">
-                                                        <input
-                                                            type="text"
-                                                            className="form-control form-control-sm"
-                                                            placeholder="Company"
-                                                            style={{ padding: '8px 12px' }}
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            value={values.company}
-                                                            name="company"
-                                                        />
-                                                        {errors.company && touched.company && <div id="feedback" style={Style}>{errors.company}</div>}
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <div className="form-group">
-                                                        <textarea
-                                                            type="text"
-                                                            style={{ padding: '8px 12px' }}
-                                                            className="form-control form-control-sm"
-                                                            rows="5"
-                                                            placeholder="Message"
-                                                            onChange={handleChange}
-                                                            onBlur={handleBlur}
-                                                            value={values.message}
-                                                            name="message"
-                                                        >
-                                                        </textarea>
 
-                                                        {errors.message && touched.message && <div id="feedback" style={Style}>{errors.message}</div>}
-                                                    </div>
-                                                </div>
-                                                <div className="col-md-12">
-                                                    <button
-                                                        style={{ color: "#000" }}
-                                                        type="submit"
-                                                        value="submit"
-                                                        className="primary-btn banner-btn"
-                                                        disabled={isSubmitting}
-                                                    >
-                                                        Send
-                                                      </button>
-                                                    <span />
+                            <form onSubmit={handleSubmit}>
+                                <div className="d-flex">
+                                    <input
+                                        type="text"
+                                        name="firstName" c
+                                        className="text"
+                                        placeholder="First Name"
+                                        value={values.firstName}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        style={{ padding: '8px 12px' }}
+                                    />
+                                    <br></br>
+                                    {errors.firstName && touched.firstName && (<div id="feedback"
+                                        style={Style}>{errors.firstName}</div>)}
 
-                                                    {/* <Loader /> */}
-                                                    {/* <button
-                                                            style={{ color: "#000", marginLeft: "15px" }}
-                                                            type="button"
-                                                            data-dismiss="modal"
-                                                            className="primary-btn banner-btn">
-                                                            Close
-                                                          </button> */}
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                    <input type="text"
+                                        name="lastName"
+                                        className="text"
+                                        placeholder="Last Name"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.lastName}
+                                    />
+                                    <br></br>
+                                    {errors.lastName && touched.lastName && (<div id="feedback"
+                                        style={Style}>{errors.lastName}</div>)}
+
+
                                 </div>
-                            </div>
+                                <input type="email"
+                                    name="email"
+                                    className="text"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.email}
+
+                                />
+
+                                {errors.email && touched.email && (<div id="feedback"
+                                    style={Style}>{errors.email}</div>)}
+
+                                <input type="text"
+                                    name="company"
+                                    className="text"
+                                    placeholder="Company Name"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.company}
+
+                                />
+                                {errors.company && touched.company && (<div id="feedback"
+                                    style={Style}>{errors.company}</div>)}
+
+                                <input type="submit"
+                                    name="submit"
+                                    className="btn submit"
+                                    value="submit"
+                                />
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -137,18 +109,22 @@ const ContactFrom = props => {
 const PostReviewFormFormik = withFormik({
     enableReinitialize: true,
     mapPropsToValues: () => ({
-        name: '',
-        email: '',
+        firstName: '',
+        lastName: '',
         company: '',
-        message: ''
+        email: ''
     }),
 
-
     validationSchema: yupObject().shape({
-        name: yupString()
+        firstName: yupString()
             .min(4, 'Please enter less than 4 characters')
             .max(20, 'Please enter no more than 25 characters')
             .required('Please enter your first name'),
+
+        lastName: yupString()
+            .min(4, 'Please enter less than 4 characters')
+            .max(20, 'Please enter no more than 25 characters')
+            .required('Please enter your Last name'),
 
         email: yupString()
             .email('Please enter a valid email')
@@ -159,9 +135,7 @@ const PostReviewFormFormik = withFormik({
             .max(25, 'Please enter no more than 25 characters')
             .required('Please enter a company name'),
 
-        message: yupString()
-            .max(250, 'Please enter no more than 250 characters')
-            .required('Please enter a company name'),
+
 
     }),
 
@@ -182,9 +156,9 @@ const PostReviewFormFormik = withFormik({
                     if (data.success === true) {
                         swal({
                             title: "Done!",
-                            text: "Email send admin",
+                            text: "Email sent admin",
                             icon: "success",
-                            timer: 2000,
+                            timer: 1000,
                             button: false,
 
 
@@ -192,7 +166,7 @@ const PostReviewFormFormik = withFormik({
                         //setState({ name: "", email: "", message: "", company: "" })
                     }
                     if (data.message) {
-                        swal('Not Mail has been sent');
+                        swal('Mail Not  sent');
                         //this.props.resetPutVehicle();
                     }
                 }

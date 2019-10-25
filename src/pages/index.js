@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import ContactFrom from '../components/ContactForm'
 
 // import { Router, Route, IndexRoute } from 'react-router';
 // import { browserHistory } from 'react-router';
@@ -63,57 +64,13 @@ class IndexPage extends Component {
                   <a className="nav-link" href="#about-us">About us</a>
                 </li>
                 <li className="nav-item btn">
-                  <a className="nav-link" data-toggle="modal" data-target="#email-p1">Join Email List</a>
+                  <a className="nav-link" data-toggle="modal" data-target="#email-p1">
+                    Join Email List</a>
                 </li>
               </ul>
             </div>
           </nav>
         </header>
-
-
-        {/* model code start  */}
-        <div className="modal form-model" id="email-p1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLongTitle">Get notified at launch!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body text-left">
-                <form method="post" action="">
-                  <div className="d-flex">
-                    <input
-                      type="text"
-                      name="name" c
-                      className="text"
-                      placeholder="First Name" />
-                    <input type="text"
-                      name="name"
-                      className="text"
-                      placeholder="Last Name" />
-                  </div>
-                  <input type="email"
-                    name="email"
-                    className="text"
-                    placeholder="Email" />
-                  <input type="text"
-                    name="company"
-                    className="text"
-                    placeholder="Company Name" />
-                  <input type="submit"
-                    name="submit"
-                    className="btn submit"
-                    value="Send" />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* model close code */}
-
 
         <section className="banner-bg-home" style={Style}>
           <div className="overlay1">
@@ -128,51 +85,11 @@ class IndexPage extends Component {
               just plain being there to motivate and encourage others working on achieving their goals.</p>
 
 
-                <a className="btn gray-btn" data-toggle="modal" data-target="#email-p">Join Email List</a>
+                <a className="btn gray-btn" data-toggle="modal" data-target="#email-p1">Join Email List</a>
 
-
-                <div className="modal form-model" id="email-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                  <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Get notified at launch!</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body text-left">
-
-                        <form method="post" action="">
-                          <div className="d-flex">
-                            <input type="text"
-                              name="name"
-                              className="text"
-                              placeholder="First Name" />
-                            <input type="text"
-                              name="name"
-                              className="text"
-                              placeholder="Last Name" />
-                          </div>
-                          <input
-                            type="email"
-                            name="email"
-                            className="text"
-                            placeholder="Email" />
-                          <input
-                            type="text"
-                            name="company"
-                            className="text"
-                            placeholder="Company Name" />
-                          <input
-                            type="submit"
-                            name="submit"
-                            className="btn submit"
-                            value="Send" />
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {/* model code start  */}
+                <ContactFrom />
+                {/* model close code */}
               </div>
             </div>
           </div>
@@ -406,47 +323,9 @@ class IndexPage extends Component {
 </div>
               <div className="col-md-3 text-right">
 
-                <a className="btn br-btn" data-toggle="modal" data-target="#email-p">Join Email List</a>
+                <a className="btn br-btn" data-toggle="modal" data-target="#email-p1">Join Email List</a>
 
-                <div className="modal form-model" id="email-p" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                  <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title" id="exampleModalLongTitle">Get notified at launch!</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div className="modal-body text-left">
 
-                        <form method="post" action="">
-                          <div class="d-flex">
-                            <input type="text"
-                              name="name"
-                              className="text"
-                              placeholder="First Name" />
-                            <input type="text"
-                              name="name"
-                              className="text"
-                              placeholder="Last Name" />
-                          </div>
-                          <input type="email"
-                            name="email"
-                            className="text"
-                            placeholder="Email" />
-                          <input type="text"
-                            name="company"
-                            className="text"
-                            placeholder="Company Name" />
-                          <input type="submit"
-                            name="submit"
-                            className="btn submit"
-                            value="Send" />
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
               </div>
             </div>
